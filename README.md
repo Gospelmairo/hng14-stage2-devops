@@ -1,4 +1,4 @@
-# JobFlow-CICD
+# Job Queue System
 
 A containerized microservices job-processing system with a full CI/CD pipeline  built with Docker, FastAPI, Redis, and GitHub Actions.
 
@@ -6,7 +6,7 @@ A containerized microservices job-processing system with a full CI/CD pipeline  
 
 ## Overview
 
-JobFlow-CICD is a distributed job queue platform where users submit jobs via a web dashboard, an API queues them into Redis, and background workers process them asynchronously. Every code change is automatically linted, tested, security-scanned, and deployed through a multi-stage GitHub Actions pipeline.
+This is a distributed job queue platform where users submit jobs via a web dashboard, an API queues them into Redis, and background workers process them asynchronously. Every code change is automatically linted, tested, security-scanned, and deployed through a multi-stage GitHub Actions pipeline.
 
 ---
 
@@ -40,8 +40,8 @@ Redis :6379 ◄──── Worker (Python)
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/Gospelmairo/JobFlow-CICD.git
-cd JobFlow-CICD
+git clone https://github.com/Gospelmairo/job-queue-system.git
+cd job-queue-system
 
 # 2. Set up environment variables
 cp .env.example .env
@@ -56,10 +56,10 @@ open http://localhost:3000
 
 Successful startup output:
 ```
-✔ Container jobflow-redis-1     Healthy
-✔ Container jobflow-api-1       Healthy
-✔ Container jobflow-worker-1    Healthy
-✔ Container jobflow-frontend-1  Healthy
+✔ Container job-queue-system-redis-1     Healthy
+✔ Container job-queue-system-api-1       Healthy
+✔ Container job-queue-system-worker-1    Healthy
+✔ Container job-queue-system-frontend-1  Healthy
 ```
 
 ---
@@ -130,7 +130,7 @@ The deploy stage updates each service one at a time (api → worker → frontend
 ## Project Structure
 
 ```
-JobFlow-CICD/
+job-queue-system/
 ├── docker-compose.yml
 ├── .env.example
 ├── .gitignore
